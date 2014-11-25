@@ -1,0 +1,67 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gibbler2;
+
+/**
+ *
+ * @author Aisha
+ */
+public class Search {
+    
+    public void Search(){
+        
+    }
+     
+    public String SearchByUser(String username){
+        
+        String thing = "";
+        
+        /*
+            if (username exists in user table){
+        
+                thing = username;
+                
+                Display the users profile and (if you want) a few of the users public posts if any exist.
+            }
+        
+            else if (username exists in group table){
+                
+                thing = username;
+                
+                Display group name and a few public posts from the group
+            }
+            
+            else {
+            
+                System.out.println("Error: No user or group by that name");
+        
+            }
+        
+        */
+        
+        return thing;
+    }
+    
+    public void SearchByHash(String tag){
+        
+        /*
+          for (int i = 0; i < length of post table; i++){
+        
+            if (post table position i contains tag){
+        
+                if (post is public or user is subscribed to group or user){
+                    
+                    display post
+                
+                }
+            }
+        
+          }
+        */
+        
+    }
+    
+}
