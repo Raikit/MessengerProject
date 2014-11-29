@@ -1,0 +1,24 @@
+while (!loggedIn){
+            System.out.println("Welcome to Gibbler! How can we assist you?\nPlease enter the number of the option you would like."
+                    + "\n\n1. Register an Account\n2. Register an Admin Account\n3. Login\n4. Search\n5. View Feed");
+            ans = in.nextLine();
+
+            if (ans.equals("1")){
+                gibbler.Register();
+            }
+
+            else if (ans.equals("2")){
+                gibbler.RegisterAsAdmin();
+            }
+
+            else if (ans.equals("3")){
+
+                current = gibbler.LogIn();
+                user.viewFeed(current.getUN());
+
+                if (current.getUN() != null){
+                    loggedIn = true;
+                }
+
+            }
+        }
