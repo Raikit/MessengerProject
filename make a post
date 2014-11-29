@@ -1,0 +1,15 @@
+System.out.println("\nIs your post public or private?");
+        privacy = in.nextLine();
+
+        System.out.println("\nType your post!");
+        text = in.nextLine();
+        text += " ";
+        Date date = new Date();
+        postDate = dateFormat.format(date);
+
+        while(text.length() > 140){
+            System.out.println("\nYour gobble is too long. Gobbles cannot be longer than 140 characters.\nType your post!");
+            text = in.nextLine();
+            text += " ";
+            postDate = dateFormat.format(date);
+        }
