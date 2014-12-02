@@ -1,0 +1,57 @@
+if(rs1.isBeforeFirst()){
+                    while(rs1.next()){
+                        statement = conn.createStatement();
+                        sql = ("SELECT text, username, date_time FROM posts WHERE username = '" + rs1.getString("Users") + "';");
+                        //System.out.println(sql);
+                        ResultSet rs2 = statement.executeQuery(sql);
+                        
+                        if(rs2.isBeforeFirst()){
+                            System.out.println("Displaying posts by " + rs1.getString("Users"));
+                            while(rs2.next()){
+                                System.out.println(rs2.getString("text") + " by user: " + rs2.getString("username")
+                                    + " at " + rs2.getString("date_time"));
+                            }
+                            
+                            System.out.println("");
+                        }else if(rs1.getString("Users") == null){
+                            
+                        }else{
+                            System.out.println("No posts to display from user " + rs1.getString("Users") + "\n");
+                        }//if posts by user
+                    }//while users in rs1
+                }else{
+                    System.out.println("\nYou are not following any users.\n");
+                }//if users in list
+                
+                rs1.close();
+                
+                statement = conn.createStatement();
+                sql = ("SELECT Groups FROM " + user + ";");
+                rs1 = statement.executeQuery(sql);
+                
+                if(rs1.isBeforeFirst()){
+                    while(rs1.next()){
+                        statement = conn.createStatement();
+                        sql = ("SELECT text, username, date_time FROM posts WHERE groups LIKE '%" + rs1.getString("Groups") + "%';");
+                        //System.out.println(sql);
+                        ResultSet rs2 = statement.executeQuery(sql);
+                        
+                        if(rs2.isBeforeFirst()){
+                            System.out.println("Displaying posts in group " + rs1.getString("Groups"));
+                            while(rs2.next()){
+                                System.out.println(rs2.getString("text") + " by user: " + rs2.getString("username")
+                                    + " at " + rs2.getString("date_time"));
+                            }
+                            
+                            System.out.println("");
+                        }else if(rs1.getString("Groups") == null){
+                            
+                        }else{
+                            System.out.println("No posts to display from group " + rs1.getString("Groups") + "\n");
+                        }//if posts in group
+                    }//while groups in rs1
+                }else{
+                    System.out.println("\nYou are not following any groups.\n");
+                }//if groups in list
+                
+                rs1.close();
